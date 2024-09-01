@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Title</title>
+        <title>{{ producto.nombre }}</title>
         <!-- Required meta tags -->
         <meta charset="utf-8" />
         <meta
@@ -23,12 +23,12 @@
             <!-- place navbar here -->
         </header>
         <main>
-            <h1>{{producto.nombre}}</h1>
-            <p>{{producto.descripcion}}</p>
-            <p>{{producto.stock}}</p>
+            <h1>{{ producto.nombre }}</h1>
+            <p>{{ producto.descripcion }}</p>
+            <p>{{ producto.stock }}</p>
             <a href="{% url 'actualizar_producto' producto.id%}">Editar producto</a>
             <a href="{% url 'eliminar_producto' producto.id%}">Eliminar producto</a>
-            <a href="{% url 'listar_productos'%}">Volver atrás</a>
+            <a href="{% url 'lista_productos'%}">Volver a la lista</a>
         </main>
         <footer>
             <!-- place footer here -->

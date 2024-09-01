@@ -34,14 +34,14 @@ def actualizar_producto(request, pk):
             # Guardamos el producto
             form.save()
             # Redireccionamos
-            return redirect('detalle_productos', pk=producto.pk)
+            return redirect('detalle_producto', pk=producto.pk)
     else: 
         # Si no es método POST, mandamos el formulario vacío
         form = ProductoForm(instance=producto)
-    return render(request, 'productos/from_producto.html', { 'form' : form })
+    return render(request, 'productos/form_producto.html', { 'form' : form })
 def eliminar_producto(request, pk):
     producto = get_object_or_404(Producto, pk=pk)
     if request.method == 'POST':
         producto.delete()
         return redirect('lista_productos')
-    return render(request, 'producto/confirmar_eliminacion.html', { 'producto' : producto })
+    return render(request, 'productos/confirmar_eliminacion.html', { 'producto' : producto })

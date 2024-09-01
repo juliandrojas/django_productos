@@ -24,13 +24,17 @@
         </header>
         <main>
             <h1 class="text-center">Lista de productos</h1>
-            <a href="{% url 'crear_producto' %}"></a>
+            <!-- En el href dirigimos a la vista de crear producto -->
+            <a href="{% url 'crear_producto' %}">Agregar nuevo producto</a>
             <ul>
+                <!-- Iteramos cada producto -->
                 {% for producto in productos %}
                 <li>
-                    <a href="{% url 'detalle_producto' producto.id%}">{{ producto.nombre }}</a>
-                    <a href="{% url 'actualizar_producto' producto.id%}">Editar producto</a>
-                    <a href="{% url 'eliminar_producto' producto.id%}">Eliminar producto</a>
+                    <!-- Enlace al detalle de cada producto con su respectivo id -->
+                    <a href="{% url 'detalle_producto' producto.id %}" style="text-decoration: none; color: black;"> {{ producto.nombre}} </a>
+                    <!-- Enlace al formulario para editar y/o eliminar cada producto con su respectivo id -->
+                    <a href="{% url 'actualizar_producto' producto.id %}">Editar</a>
+                    <a href="{% url 'eliminar_producto' producto.id %}">Eliminar</a>
                 </li>
                 {% endfor %}
             </ul>

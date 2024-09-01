@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Lista de productos</title>
+        <title>Confirmar eliminación</title>
         <!-- Required meta tags -->
         <meta charset="utf-8" />
         <meta
@@ -23,7 +23,13 @@
             <!-- place navbar here -->
         </header>
         <main>
-            <h1 class="text-center">Lista de productos</h1>
+            <h1 class="text-center">Confirmar eliminación</h1>
+            <p class="text-center">¿Estás seguro de eliminar el producto {{ producto.nombre }}?</p>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit">Si, eliminar</button>
+            </form>
+            <a href="{% url 'detalle_producto' producto.id %}">Cancelar eliminación</a>
         </main>
         <footer>
             <!-- place footer here -->
